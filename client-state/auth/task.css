@@ -45,3 +45,12 @@
   display: block;
   text-align: center;
 }
+
+.text-center{
+  text-align: center;
+}
+
+.log-out-box{
+  margin-top: 20px;
+  display: none;
+}

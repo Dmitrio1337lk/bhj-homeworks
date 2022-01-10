@@ -1,25 +1,16 @@
-const popup = document.getElementById('subscribe-modal'),
+const modal = document.getElementById('subscribe-modal');
+const modalClose = document.querySelector('.modal__close');
 
-    popupClose = document.querySelector('#subscribe-modal .modal__close');
+if (!(getCookie('modal') === 'closed')) {
+    let idModalActive = setTimeout(() => modal.classList.add('modal_active'), 1500);
+};
 
-if (!getCookie('popup')) {
-
-    popup.classList.add('modal_active');
-
-}
-
-popupClose.addEventListener('click', () => {
-
-    document.cookie = 'popup=itwas';
-
-    popup.classList.remove('modal_active');
-
+modalClose.addEventListener('click', () => {
+    modal.classList.remove('modal_active');
 });
 
 function getCookie(name) {
-
-    var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-    
-}
+    const cookies = document.cookie.split('; ');
+    const cookie = cookies.find((c) => c.startsWith(name + '='));
+    return cookie ? decodeURIComponent(cookie.substr((name + '=' ).length)) : null;
+};
