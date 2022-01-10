@@ -3,17 +3,7 @@ let controlDec = document.getElementsByClassName("product__quantity-control_dec"
 for(let i = 0; i < controlDec.length; i++){
 
 	controlDec[i].onclick = function(){
-
-		if(controlDec[i].nextElementSibling.innerText == 1){
-
-		}  
-        
-        else{
-
-			controlDec[i].nextElementSibling.innerText --;
-
-		   }
-
+		controlDec[i].nextElementSibling.innerText --;
 	}
 };
 
